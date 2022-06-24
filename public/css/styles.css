@@ -31,6 +31,16 @@ textarea {
 	min-height: 200px;
 }
 
+#compose-new-post a {
+	color: white;
+	text-decoration: none;
+}
+
+.post-content {
+	/*same as p tags*/
+	white-space: pre;
+}
+
 .footer-padding {
 	padding-bottom: 60px;
 }

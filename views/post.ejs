@@ -1,6 +1,12 @@
 <%-include("partials/header")-%>
 
 <h1><%=postTitle%></h1>
-<p><%=postContent%></p>
+<p class="post-content"><%=postContent%></p>
+
+<hr>
+<form action="/delete" method="post">
+	<input type="hidden" name="delete" value="<%=postId%>">
+	<button type="submit" class="btn btn-danger">Delete this Post !</button>
+</form>
 
 <%-include("partials/footer")-%>

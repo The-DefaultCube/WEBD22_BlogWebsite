@@ -5,7 +5,10 @@
 
 <% postArray.forEach((item)=>{ %>
 	<h1><%=item.postTitle%></h1>
-	<p><%=item.postContent.substring(0,100)%> ... <a href="/post/<%=item.postTitle%>">Read More</a></p>
+	<p><%=item.postContent.substring(0,100)%> ... <a href="/post/<%=item._id%>">Read More</a></p>
 <% }) %>
+
+<hr>
+<button class="btn btn-success" id="compose-new-post"><a href="/compose">Compose New Post</a></button>
 
 <%-include("partials/footer")-%>
