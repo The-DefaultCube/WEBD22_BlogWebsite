@@ -5,6 +5,7 @@
 //
 /************************/
 /*----------------------------------------------------------------------------*/
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -21,11 +22,14 @@ app.use(
   })
 );
 /*----------------------------------------------------------------------------*/
-app.listen(3000, function () {
-});
+app.listen(3000, function () {});
 /*----------------------------------------------------------------------------*/
 /*-----------------------------DATABASE-------------------------------------*/
-mongoose.connect("mongodb://localhost:27017/blogWebsiteDB");
+mongoose.connect(
+  "mongodb+srv://admin-blog-website:" +
+    process.env.MONGO_DB_PASSWORD +
+    "@cluster0.ngpc9.mongodb.net/blogWebsiteDB"
+);
 
 const postSchema = new mongoose.Schema({
   postTitle: String,
@@ -80,7 +84,7 @@ app.get("/post/:postId", (req, res) => {
       res.render("post", {
         postTitle: foundPost.postTitle,
         postContent: foundPost.postContent,
-        postId: foundPost._id
+        postId: foundPost._id,
       });
     } else {
       res.send("NO post found!");
@@ -105,10 +109,9 @@ app.post("/compose", (req, res) => {
 /*--------------------------DELETE THE POST-----------------------------------*/
 app.post("/delete", (req, res) => {
   const postIdToDelete = req.body.delete;
-  Post.findByIdAndDelete(postIdToDelete, (err, deletedPost)=>{
-    if(!err){
+  Post.findByIdAndDelete(postIdToDelete, (err, deletedPost) => {
+    if (!err) {
       res.redirect("/");
     }
-  })
+  });
 });
-
