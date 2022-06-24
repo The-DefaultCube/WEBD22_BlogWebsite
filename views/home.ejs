@@ -4,8 +4,10 @@
 <p><%=homeStartingContent%></p>
 
 <% postArray.forEach((item)=>{ %>
-	<h1><%=item.postTitle%></h1>
-	<p><%=item.postContent.substring(0,100)%> ... <a href="/post/<%=item._id%>">Read More</a></p>
+	<%-include("partials/blogPost", {
+		title: item.postTitle,
+		content: item.postContent,
+		id: item._id})-%>
 <% }) %>
 
 <hr>

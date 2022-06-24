@@ -36,9 +36,22 @@ textarea {
 	text-decoration: none;
 }
 
+#compose-new-post {
+	margin-bottom: 200px;
+}
+
 .post-content {
 	/*same as p tags*/
-	white-space: pre;
+	white-space: pre-wrap;
+}
+
+.blog-post {
+	background-color: #F8F8F8;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	padding-top: 1px;
+	margin: 8px 0px 8px;
+	border-radius: 8px;
 }
 
 .footer-padding {
